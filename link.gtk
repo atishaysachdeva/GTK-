@@ -1,0 +1,36 @@
+#include<gtk/gtk.h>
+
+int main(int argc, char *argv[])
+{
+ GtkWidget *window;
+ GtkWidget *box;
+ GtkWidget *linkbutton_linuxbuddy;
+ GtkWidget *linkbutton_google;
+ GtkWidget *linkbutton_youtube;
+
+ gtk_init(&argc,&argv);
+ window=gtk_window_new(GTK_WINDOW_TOPLEVEL);
+ gtk_window_set_default_size(GTK_WINDOW(window), 1240, 960);
+ gtk_window_set_title(GTK_WINDOW(window),"Minor Project");
+ 
+ linkbutton_linuxbuddy=gtk_link_button_new("Pipe Process_ID for GNOME");
+ gtk_link_button_set_uri(GTK_LINK_BUTTON(linkbutton_linuxbuddy),"file:////home/atishay/Desktop/minor/finalminor/finalminor.txt");
+ linkbutton_google =gtk_link_button_new("Pipe Process_ID for Root");
+ gtk_link_button_set_uri(GTK_LINK_BUTTON(linkbutton_google), "file:////home/atishay/Desktop/minor/finalminor/finalminor1.txt");
+ linkbutton_youtube =gtk_link_button_new("Pipe Process_ID for Firefox ");
+ gtk_link_button_set_uri(GTK_LINK_BUTTON(linkbutton_youtube), "file:////home/atishay/Desktop/minor/finalminor/finalminor2.txt");
+ 
+ box=gtk_vbox_new(FALSE, 0);
+ gtk_box_pack_start(GTK_BOX(box), linkbutton_linuxbuddy, FALSE, FALSE , 3);
+ gtk_box_pack_start(GTK_BOX(box), linkbutton_google, FALSE, FALSE , 3);
+ gtk_box_pack_start(GTK_BOX(box), linkbutton_youtube, FALSE, FALSE , 3);
+
+ gtk_container_add(GTK_CONTAINER(window), box);
+ 
+ g_signal_connect(G_OBJECT(window), "destroy", G_CALLBACK(gtk_main_quit), NULL);
+ gtk_widget_show_all(window);
+ gtk_main();
+ return 0;
+}
+ 
+ 
